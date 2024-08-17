@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (selectedIndex) {
       case 0:
         page = GeneratorPage();
+
         break;
       case 1:
         page = FavoritesPage();
@@ -72,7 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
-
     return Builder(
       builder: (context) {
         return Scaffold(
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               SafeArea(
                 child: NavigationRail(
-                  extended: false,
+                  extended: true,
                   destinations: [
                     NavigationRailDestination(
                       icon: Icon(Icons.home),
