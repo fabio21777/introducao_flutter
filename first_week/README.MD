@@ -9,4 +9,4 @@
 
 ## Layouts
 
-[Layouts](./Layouts.md)
+[Layouts](./layouts.md)
