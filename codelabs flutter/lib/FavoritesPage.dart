@@ -17,19 +17,31 @@ class FavoritesPage extends StatelessWidget {
       );
     }
 
-    return ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: Text('You have '
-              '${appState.favorites.length} favorites:'),
-        ),
-        for (var pair in appState.favorites)
-          ListTile(
-            leading: Icon(Icons.favorite),
-            title: Text(pair.asLowerCase),
-          ),
-      ],
-    );
+    return
+
+      SafeArea(
+          child: Column(
+            children: [
+              Text('Favorites', style: Theme.of(context).textTheme.headlineLarge),
+              Expanded(child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  for (var pair in appState.favorites)
+                    Container(
+                      padding: const EdgeInsets.all(20),
+                      child: Row(
+                        children: [
+                          Icon(Icons.favorite),
+                          Text(pair.asLowerCase),
+                          SizedBox(width: 10),
+                        ],
+                      ),
+                    ),
+                ],
+              ))
+            ],
+          )
+      );
+
   }
 }

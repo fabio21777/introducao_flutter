@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               SafeArea(
                 child: NavigationRail(
-                  extended: true,
+                  extended: false,
                   destinations: [
                     NavigationRailDestination(
                       icon: Icon(Icons.home),
@@ -100,7 +100,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Expanded(
-                child: Container(
+                child:
+                Container(
                   color: Theme.of(context).colorScheme.primaryContainer,
                   child: page,
                 ),
