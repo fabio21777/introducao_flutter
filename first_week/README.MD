@@ -10,3 +10,7 @@
 ## Layouts
 
 [Layouts](./layouts.md)
+
+## Gerenciamento de estado
+
+[Gerenciamento de estado](./gerenciamento%20estados.md)
