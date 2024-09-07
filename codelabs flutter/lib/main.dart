@@ -1,9 +1,12 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:my_first_project/AddFavorite.dart';
 import 'package:provider/provider.dart';
 
+import 'AppfavoriteState.dart';
 import 'FavoritesPage.dart';
 import 'GeneratorPage.dart';
+import 'NetworkingPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,8 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
+    return MultiProvider(
+      providers:[
+        ChangeNotifierProvider(create: (context) => FavoriteState()),
+      ],
       child: MaterialApp(
         title: 'Namer App',
         theme: ThemeData(
@@ -26,27 +31,6 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
-
-class MyAppState extends ChangeNotifier {
-  var current = WordPair.random();
-  void getNext() {
-    current = WordPair.random();
-    notifyListeners();
-  }
-
-  var favorites = <WordPair>[];
-
-  void toggleFavorite() {
-    if (favorites.contains(current)) {
-      favorites.remove(current);
-    } else {
-      favorites.add(current);
-    }
-    print(favorites);
-    notifyListeners();
-  }
-
 }
 
 // ...
@@ -70,6 +54,16 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         page = FavoritesPage();
         break;
+
+      case 2:
+        page = NetworkingPage();
+        break;
+
+      case 3:
+        page = Addfavorite();
+        break;
+
+
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -90,6 +84,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       icon: Icon(Icons.favorite),
                       label: Text('Favorites'),
                     ),
+                    NavigationRailDestination(
+                        icon: Icon(Icons.network_check),
+                        label: Text('Network')),
+                    NavigationRailDestination(
+                      icon: Icon(Icons.add),
+                      label: Text('Adicionar favorito')
+                    )
                   ],
                   selectedIndex: selectedIndex,
                   onDestinationSelected: (value) {

@@ -7,7 +7,7 @@ class BigCard extends StatelessWidget {
     required this.pair,
   });
 
-  final WordPair pair;
+  final String pair;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class BigCard extends StatelessWidget {
       color: theme.colorScheme.primary,
       child: Container(
         padding: const EdgeInsets.all(20),
-        child: Text(pair.asLowerCase, style: style,semanticsLabel: "${pair.first} ${pair.second}"),
+        child: Text(pair, style: style,semanticsLabel: "$pair $pair"),
       ),
     );
   }

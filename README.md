@@ -2,6 +2,6 @@
 
 ## Tutorial codelabs flutter primeiro app
 
-![alt text](codelabs%20flutter/ezgif-7-40eeef8926.gif)
+![alt text](Screen_recording_20240907_114623.gif)
 
 ## Primeiras experiências com flutter (https://docs.flutter.dev/get-started/fwe)

@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:my_first_project/AppfavoriteState.dart';
 import 'package:provider/provider.dart';
 
 import 'main.dart';
@@ -9,7 +10,7 @@ import 'main.dart';
 class FavoritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
+    var appState = context.watch<FavoriteState>();
 
     if (appState.favorites.isEmpty) {
       return Center(
@@ -32,7 +33,7 @@ class FavoritesPage extends StatelessWidget {
                       child: Row(
                         children: [
                           Icon(Icons.favorite),
-                          Text(pair.asLowerCase),
+                          Text(pair),
                           SizedBox(width: 10),
                         ],
                       ),
